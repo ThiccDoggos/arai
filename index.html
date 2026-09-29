@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AirAI | Predictive control for Hanoi’s office HVAC</title>
+  <meta name="description" content="AirAI adds a predictive AI decision layer, and the actuation layer most buildings are missing, to existing HVAC in Hanoi’s office buildings. Targeting lower operating costs and lower emissions.">
+  <meta name="theme-color" content="#0F1E35">
+  <meta property="og:title" content="AirAI | Intelligent air. Better living.">
+  <meta property="og:description" content="Predictive control that closes the loop from sensing to equipment, built for Hanoi’s office buildings.">
+  <meta property="og:image" content="img/hero-tower.jpg">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="preload" as="font" type="font/woff2" href="fonts/newsreader-normal-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="fonts/schibstedgrotesk-normal-latin.woff2" crossorigin>
+  <link rel="preload" as="image" href="img/hero-tower.jpg">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="1.5"/><path d="m22 7-10 6L2 7"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="nav__island">
+    <a href="#top" class="brand" aria-label="AirAI, back to top">
+      <img class="brand__icon" src="img/airai-icon.png" alt="" width="256" height="277">
+      <img class="brand__word" src="img/wordmark-light.png" alt="" width="420" height="160">
+    </a>
+    <nav class="nav__menu" id="navMenu" aria-label="Primary">
+      <ul class="nav__links">
+        <li class="nav__glide" aria-hidden="true"></li>
+        <li><a href="#problem">Problem</a></li>
+        <li><a href="#solution">Solution</a></li>
+        <li><a href="#product">Product</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#market">Market</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      <a href="#contact" class="btn btn--sky btn--small" data-contact>Partner with us</a>
+    </nav>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+      <svg class="ico" aria-hidden="true"><use href="#i-menu"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- Hero -->
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <img class="hero__img" src="img/hero-tower.jpg" alt="" width="1130" height="636">
+  <div class="hero__shade" aria-hidden="true"></div>
+  <div class="wrap hero__content">
+    <h1 id="hero-title" class="hero__title">The <span class="c-sky">AI layer</span><br> between <span class="c-amber">your BMS</span> and<br> <span class="c-amber">your electricity bill</span></h1>
+  </div>
+  <a class="hero__cue" href="#problem" aria-label="Scroll to the problem"><span>Scroll</span></a>
+</section>
+
+<!-- Problem: opening statement -->
+<section class="band band--night opener" id="problem" aria-labelledby="opener-title">
+  <div class="wrap opener__grid">
+    <h2 id="opener-title" class="opener__title">Hanoi’s office buildings are paying to cool and filter space no one is using.</h2>
+    <div class="opener__side">
+      <p class="opener__lede">HVAC already accounts for the largest controllable slice of a Hanoi office building’s energy bill, and it runs on a fixed schedule that has no idea whether a floor is full or empty.</p>
+      <div class="opener__actions">
+        <a class="btn btn--sky" href="#solution">See how it works</a>
+        <a class="btn btn--outline" href="#contact" data-contact>Partner with us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Problem: detail -->
+<section class="band band--white" aria-labelledby="problem-title">
+  <div class="wrap split">
+    <div class="split__text">
+      <h2 id="problem-title">The building already owns the hardware. What’s missing is the intelligence to use it.</h2>
+      <p class="lede">Electricity is only getting more expensive and climate targets only getting stricter. Yet climate control in most buildings is essentially blind: it runs the same way whether a floor is empty or full.</p>
+    </div>
+    <figure class="split__photo">
+      <img src="img/rooftop-units.jpg" alt="Rows of rooftop HVAC condenser units on a city building" width="1400" height="1400" loading="lazy">
+    </figure>
+  </div>
+
+  <div class="wrap">
+    <ul class="figures">
+      <li>
+        <p class="figure__num">105.9</p>
+        <p class="figure__text">kWh per square metre a year, the average energy use intensity of a Hanoi office building</p>
+      </li>
+      <li>
+        <p class="figure__num">55%</p>
+        <p class="figure__text">of that consumption is estimated to go to HVAC alone</p>
+      </li>
+      <li>
+        <p class="figure__num">+17%</p>
+        <p class="figure__text">cumulative rise in EVN commercial electricity tariffs since early 2023</p>
+      </li>
+    </ul>
+    <p class="source">Sources: Hoang et al. (2022), a survey of Hanoi office buildings; Tuoi Tre News (2025).</p>
+  </div>
+</section>
+
+<!-- Solution -->
+<section class="band band--air" id="solution" aria-labelledby="solution-title">
+  <div class="wrap">
+    <header class="head">
+      <h2 id="solution-title">We’re not replacing your HVAC. We’re giving it the intelligence to run itself.</h2>
+      <p class="lede">Most “smart building” software stops at recommendations. AirAI is built to close the loop all the way to the equipment itself.</p>
+    </header>
+
+    <ol class="steps">
+      <li class="step">
+        <p class="step__n" aria-hidden="true">1</p>
+        <h3>Sensing</h3>
+        <p>Real-time occupancy, temperature, and CO<sub>2</sub> data from every zone, plus current (CT) sensors that confirm equipment is physically responding, not just what the AI intended to happen.</p>
+      </li>
+      <li class="step">
+        <p class="step__n" aria-hidden="true">2</p>
+        <h3>Decision-making</h3>
+        <p>Machine learning (LSTM, XGBoost) predicts each zone’s thermal demand ahead of time; Model Predictive Control calculates the optimal valve position, fan speed, and setpoint before demand peaks, not after.</p>
+      </li>
+      <li class="step step--act">
+        <p class="step__n" aria-hidden="true">3</p>
+        <h3>Actuation</h3>
+        <p>Commands are executed directly at the equipment, through the building’s BMS where one exists, or through actuators AirAI installs where it doesn’t, instead of being surfaced only as a dashboard suggestion.</p>
+      </li>
+    </ol>
+    <p class="steps__note">Most smart-building tools end after the second step. The third is where AirAI starts to differ, and current sensors then confirm each command really happened, feeding the next prediction.</p>
+
+    <div class="demo">
+      <div class="demo__text">
+        <h3 class="h3-large">See the difference on one building.</h3>
+        <p>Nine floors, four of them empty. Switch between a fixed schedule and AirAI to see where the conditioned air goes.</p>
+        <div class="toggle" role="group" aria-label="How the building is controlled">
+          <button type="button" data-mode="fixed" aria-pressed="true">Fixed schedule</button>
+          <button type="button" data-mode="ai" aria-pressed="false">With AirAI</button>
+        </div>
+        <p class="viz__caption" id="vizCaption" aria-live="polite">On a fixed schedule every floor is cooled all day, full or empty. The amber floors have no one in them.</p>
+        <p class="viz__key"><span class="key key--person" aria-hidden="true"></span>People <span class="key key--air" aria-hidden="true"></span>Conditioned air <span class="key key--waste" aria-hidden="true"></span>Wasted cooling</p>
+      </div>
+      <figure class="viz">
+        <canvas class="viz__canvas" id="building" role="img" aria-label="Illustration of a nine-floor office building. On a fixed schedule, conditioned air flows into every floor, including four empty ones."></canvas>
+      </figure>
+    </div>
+
+    <ul class="safeguards" aria-label="Safeguards">
+      <li><h4>Shadow mode first</h4><p>The AI makes decisions without executing them until they are validated against real building operation.</p></li>
+      <li><h4>Local failsafe</h4><p>The on-site gateway keeps equipment running safely if the cloud connection drops.</p></li>
+      <li><h4>Independently verified savings</h4><p>Weather- and occupancy-adjusted baselines, audited under IPMVP, separate real savings from coincidence.</p></li>
+      <li><h4>Encrypted end to end</h4><p>TLS with mutual authentication between gateway and cloud.</p></li>
+    </ul>
+
+    <div class="edge">
+      <figure class="edge__photo">
+        <img src="img/ducts.jpg" alt="Insulated HVAC ducts and pipes running along an office ceiling" width="1100" height="1461" loading="lazy">
+      </figure>
+      <div class="edge__text">
+        <h3 class="h3-large">The actuation layer reaches buildings competitors structurally cannot.</h3>
+        <p>Software-only competitors such as BrainBox AI assume a building already has electronic actuators in place, which excludes most of Hanoi’s office stock, where valves and dampers are still mechanical, pneumatic, or manually operated.</p>
+
+        <table class="compare">
+          <caption class="visually-hidden">Which buildings each approach can serve</caption>
+          <thead>
+            <tr><th scope="col">Building</th><th scope="col">Software-only</th><th scope="col">AirAI</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Write-capable BMS with electronic actuators</th>
+              <td><svg class="ico ico--yes" aria-hidden="true"><use href="#i-check"/></svg>Can serve</td>
+              <td><svg class="ico ico--yes" aria-hidden="true"><use href="#i-check"/></svg>AirAI Lite</td>
+            </tr>
+            <tr>
+              <th scope="row">Valves and dampers mechanical, pneumatic, or manual</th>
+              <td><svg class="ico ico--no" aria-hidden="true"><use href="#i-x"/></svg>Excluded</td>
+              <td><svg class="ico ico--yes" aria-hidden="true"><use href="#i-check"/></svg>AirAI Full</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="proof">
+          <p class="proof__intro">The overlay model itself is proven. BrainBox AI’s comparable approach has already demonstrated:</p>
+          <ul class="proof__list">
+            <li><span class="proof__num">15 to 25%</span> cost reductions</li>
+            <li><span class="proof__num">20 to 40%</span> carbon reductions</li>
+            <li><span class="proof__num">USD 24M</span> Series A raised on it in 2021</li>
+          </ul>
+          <p class="source">Sources: HVACInformed (2020); BrainBox AI (2021).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Product -->
+<section class="band band--mist" id="product" aria-labelledby="product-title">
+  <div class="wrap">
+    <header class="head">
+      <h2 id="product-title">One AI core. Two ways to deploy it, so no building is left out.</h2>
+    </header>
+
+    <div class="plans">
+      <article class="plan" aria-labelledby="lite-title">
+        <img class="plan__img" src="img/facade.jpg" alt="Modern glass office facade with an open window panel" width="1400" height="788" loading="lazy">
+        <div class="plan__body">
+          <h3 id="lite-title" class="plan__name">AirAI Lite</h3>
+          <p class="plan__for">For buildings with a write-capable BMS</p>
+          <p class="plan__price"><span class="plan__num">100M</span> VND per site, approximately</p>
+          <ul class="plan__list">
+            <li>Pure software integration, no physical installation</li>
+            <li>Fastest path to deployment</li>
+            <li>300,000 VND per zone per month, plus 15% of verified savings</li>
+          </ul>
+          <p class="plan__best"><strong>Best for</strong> buildings that already have working sensors and actuators in place and just need the AI decision layer added.</p>
+        </div>
+      </article>
+
+      <article class="plan plan--full" aria-labelledby="full-title">
+        <img class="plan__img" src="img/chiller-plant.jpg" alt="Rooftop chiller plant with insulated pipework on a commercial building" width="1400" height="933" loading="lazy">
+        <div class="plan__body">
+          <h3 id="full-title" class="plan__name">AirAI Full</h3>
+          <p class="plan__for">For buildings without a standardized write-capable BMS, which is most of the market</p>
+          <p class="plan__price"><span class="plan__num">437.5M</span> VND per site, approximately, in the most common case. About 560M VND where there is no BMS at all.</p>
+          <ul class="plan__list">
+            <li>Adds the sensor and actuator layer most AI-building projects skip</li>
+            <li>800,000 VND per zone per month once live, plus 15% of verified savings</li>
+            <li>One-time setup fee of half the installation cost</li>
+          </ul>
+          <p class="plan__best"><strong>Best for</strong> the majority of Hanoi’s Grade A/B office stock, the segment software-only competitors can’t reach.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="fit">
+      <div class="fit__text">
+        <h3>Which line fits which building</h3>
+        <p>Every building goes through a 6 to 8 week technical survey before a contract is signed: twelve months of electricity bills, floor area and energy intensity, and an audit of every damper and actuator.</p>
+      </div>
+      <table class="fit__table">
+        <caption class="visually-hidden">What each building type already has, and what AirAI adds</caption>
+        <thead>
+          <tr><th scope="col"><span class="visually-hidden">Layer</span></th><th scope="col">Scenario A</th><th scope="col">Scenario B <span class="fit__common">most common</span></th><th scope="col">Scenario C</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Sensing</th><td><span class="dot dot--have"></span>In place</td><td><span class="dot dot--have"></span>In place</td><td><span class="dot dot--add"></span>Added</td></tr>
+          <tr><th scope="row">Actuation</th><td><span class="dot dot--have"></span>In place</td><td><span class="dot dot--add"></span>Added</td><td><span class="dot dot--add"></span>Added</td></tr>
+          <tr><th scope="row">AI decision layer</th><td><span class="dot dot--add"></span>Added</td><td><span class="dot dot--add"></span>Added</td><td><span class="dot dot--add"></span>Added</td></tr>
+          <tr class="fit__total"><th scope="row">Deploy with</th><td>Lite, about 100M VND</td><td>Full, about 437.5M VND</td><td>Full, about 560M VND</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Impact -->
+<section class="band band--night" id="impact" aria-labelledby="impact-title">
+  <div class="wrap">
+    <header class="head head--split">
+      <h2 id="impact-title" class="impact__title">Less wasted electricity.<br> Less carbon.<br> Savings you can verify.</h2>
+      <p class="note">None of these figures come from a completed pilot; AirAI has not yet deployed. They are projections from our financial model, benchmarked against BrainBox AI’s disclosed results, and our pilots will replace each assumption with measured data.</p>
+    </header>
+
+    <div class="target">
+      <p class="target__num">20%</p>
+      <div class="target__text">
+        <p class="target__lead">Projected cut in HVAC electricity. Per building, that is about 174,735 kWh saved and 115 t of CO<sub>2</sub> avoided each year.</p>
+        <div class="scale" aria-hidden="true">
+          <div class="scale__track">
+            <span class="scale__range"></span>
+            <span class="scale__mark scale__mark--floor"></span>
+            <span class="scale__mark scale__mark--target"></span>
+          </div>
+          <div class="scale__labels"><span style="--at:0">0%</span><span style="--at:15">15%</span><span style="--at:20">20%</span><span style="--at:25">25%</span></div>
+        </div>
+        <p class="target__floor">We scale only if verified savings reach at least 15%, the floor of the 15 to 25% range BrainBox AI has reported.</p>
+      </div>
+    </div>
+
+    <div class="outcomes">
+      <div class="outcome">
+        <h3>Who keeps the savings</h3>
+        <div class="share" role="img" aria-label="The building owner keeps 85 percent of verified savings; AirAI takes 15 percent.">
+          <span class="share__owner">Owner 85%</span><span class="share__airai">15%</span>
+        </div>
+        <p>AirAI takes 15% of savings verified under IPMVP; the building owner keeps 85%. Our revenue only grows when the client’s bill shrinks.</p>
+      </div>
+      <div class="outcome">
+        <h3>Carbon avoided at scale</h3>
+        <p class="outcome__num">2,990 t</p>
+        <p>Of CO<sub>2</sub> avoided each year, projected across our 26-building target.</p>
+      </div>
+      <div class="outcome">
+        <h3>Company breakeven</h3>
+        <p class="outcome__num">11 sites</p>
+        <p>About 11 sites running AirAI Full, or 19 running Lite, would cover the company’s costs. The base plan, 11 Lite plus 5 Full, is projected to break even by Month 35.</p>
+      </div>
+    </div>
+
+    <div class="esg">
+      <h3 class="esg__title">Environmental, social and governance impact</h3>
+      <div class="esg__cols">
+        <div class="esg__col esg__col--e">
+          <h4>Environment</h4>
+          <ul>
+            <li><strong>Less coal-fired power.</strong> Lower demand supports Vietnam’s net-zero path.</li>
+            <li><strong>No rip-and-replace.</strong> Existing chillers, air handlers and ductwork stay, avoiding the embodied carbon of new equipment.</li>
+          </ul>
+        </div>
+        <div class="esg__col esg__col--s">
+          <h4>Social</h4>
+          <ul>
+            <li><strong>Steadier comfort.</strong> No more freezing mornings and stuffy afternoons.</li>
+            <li><strong>Air quality you can track.</strong> Optional CO<sub>2</sub>, PM2.5 and VOC sensors with a live dashboard.</li>
+            <li><strong>Cleaner air for Hanoi.</strong> Less wasted power, less coal burned for the city.</li>
+            <li><strong>Local skills.</strong> Building-automation and AI expertise grown in Vietnam.</li>
+          </ul>
+        </div>
+        <div class="esg__col esg__col--g">
+          <h4>Governance</h4>
+          <ul>
+            <li><strong>Terms set up front.</strong> Each contract fixes the baseline, measurement period and auditor before work starts.</li>
+            <li><strong>ESG-ready data.</strong> Auditable figures for tenants, investors and regulators.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="econ">
+      <h3>Illustrative economics of one AirAI Full site</h3>
+      <p class="econ__sub">A 15,000 m² building with 25 zones, in million VND.</p>
+      <dl class="bars">
+        <div class="bars__row"><dt>Year 1 revenue</dt><dd><span class="bars__bar" style="--v:100%"></span><span class="bars__val">563.6</span></dd></div>
+        <div class="bars__row"><dt>Revenue from Year 2</dt><dd><span class="bars__bar" style="--v:61.18%"></span><span class="bars__val">344.8 a year</span></dd></div>
+        <div class="bars__row bars__row--key"><dt>Profit from Year 2</dt><dd><span class="bars__bar" style="--v:44.32%"></span><span class="bars__val">249.8 a year</span></dd></div>
+      </dl>
+    </div>
+
+    <div class="calc" id="estimator" aria-labelledby="calc-title">
+      <div class="calc__in">
+        <h3 id="calc-title" class="h3-large">Estimate a building</h3>
+        <p>Enter a floor area to see what our model projects. It uses the same formula as our financial model.</p>
+
+        <div class="field">
+          <label for="area">Office floor area</label>
+          <div class="field__box">
+            <input id="area" type="number" inputmode="numeric" min="1000" max="100000" step="500" value="15000" aria-describedby="area-help area-err">
+            <span class="field__unit">m²</span>
+          </div>
+          <input id="areaRange" type="range" min="1000" max="60000" step="500" value="15000" aria-label="Office floor area">
+          <p id="area-help" class="field__help">Our reference building is 15,000 m², Grade A, 10 to 15 floors.</p>
+          <p id="area-err" class="field__error" role="alert" hidden>Enter a floor area between 1,000 and 100,000 m².</p>
+        </div>
+
+        <fieldset class="choice">
+          <legend>Savings rate</legend>
+          <label><input type="radio" name="rate" value="0.15"><span>15%, the minimum</span></label>
+          <label><input type="radio" name="rate" value="0.20" checked><span>20%, our target</span></label>
+        </fieldset>
+
+        <button type="button" class="linkbtn" id="estReset">Reset to the reference building</button>
+      </div>
+
+      <div class="calc__out" aria-live="polite">
+        <div class="res res--main">
+          <p class="res__label">HVAC electricity saved</p>
+          <p class="res__num"><span id="oKwh">174,735</span> <small>kWh a year</small></p>
+        </div>
+        <div class="res">
+          <p class="res__label">Value of those savings</p>
+          <p class="res__num"><span id="oVnd">698.9M</span> <small>VND a year</small></p>
+          <p class="res__sub" id="oUsd">about USD 28,000</p>
+        </div>
+        <div class="res">
+          <p class="res__label">CO<sub>2</sub> avoided</p>
+          <p class="res__num"><span id="oCo2">115.2</span> <small>t a year</small></p>
+        </div>
+        <div class="res res--split">
+          <p class="res__pair"><span>Owner keeps 85%</span><strong id="oOwner">594.1M VND</strong></p>
+          <p class="res__pair"><span>AirAI’s 15% share</span><strong id="oAirai">104.8M VND</strong></p>
+        </div>
+        <p class="calc__foot"><strong>How we back these numbers.</strong> Every figure on this page uses the same model: a 15,000 m² reference building, Hanoi’s average office energy use of 105.9 kWh per m² a year, an assumed 55% HVAC share, 20% savings, electricity at about 4,000 VND per kWh and Vietnam’s official 2023 grid factor of 0.6592 t CO<sub>2</sub> per MWh. A projection, not a quote.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ask 1 -->
+<section class="band band--night ask" aria-labelledby="ask1-title">
+  <div class="wrap">
+    <header class="head">
+      <h2 id="ask1-title">The era of inefficient energy management has passed.</h2>
+      <p class="lede">We’re inviting forward-thinking building owners, investors, and civic leaders to help build a greener Hanoi, one commercial property at a time.</p>
+    </header>
+    <div class="audiences audiences--dark">
+      <div class="audience">
+        <h3>Building owners and managers</h3>
+        <p>Adopt intelligent automation. Partner with AirAI for a pilot to cut HVAC costs, reduce emissions, and advance your ESG targets using the infrastructure you already own.</p>
+        <a class="textlink" href="#contact" data-contact>Discuss a pilot</a>
+      </div>
+      <div class="audience">
+        <h3>Investors and BMS integrators</h3>
+        <p>Deploy capital and expertise where it yields immediate, measurable value. Join our upcoming Seed round to capture a profitable, untapped market while driving systemic emission reductions.</p>
+        <a class="textlink" href="#contact" data-contact>Talk to the team</a>
+      </div>
+      <div class="audience">
+        <h3>The city and PropTech community</h3>
+        <p>Partner with us to scale this intelligent overlay across commercial real estate, and help establish Hanoi as a model of sustainable, AI-driven urban infrastructure.</p>
+        <a class="textlink" href="#contact" data-contact>Partner with us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Market -->
+<section class="band band--white" id="market" aria-labelledby="market-title">
+  <div class="wrap split split--flip">
+    <figure class="split__photo">
+      <img src="img/office-dusk.jpg" alt="Office building at dusk with lights on across several floors" width="1100" height="1650" loading="lazy">
+    </figure>
+    <div class="split__text">
+      <h2 id="market-title">Why offices, and why now.</h2>
+      <p class="lede">Office buildings already own HVAC hardware and, increasingly, some form of building management system. The segment doesn’t need new capital-heavy infrastructure; it needs the missing decision-making layer.</p>
+      <p>That makes it the fastest, lowest-friction segment to prove the model before expanding into malls, hospitals, and residential towers.</p>
+      <ol class="path" aria-label="Where AirAI goes next">
+        <li><span><strong>Offices</strong>, today</span></li>
+        <li>Shopping malls</li>
+        <li>Private hospitals</li>
+        <li>Residential towers</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <h3 class="subhead">Three pressures are converging</h3>
+    <div class="pressures">
+      <div class="pressure">
+        <p class="pressure__num">+17%</p>
+        <h4>Rising energy costs</h4>
+        <p>EVN has raised commercial electricity tariffs four times since early 2023. The cost of leaving HVAC inefficiency unaddressed keeps climbing every year.</p>
+      </div>
+      <div class="pressure">
+        <p class="pressure__num">2050</p>
+        <h4>Tightening climate commitments</h4>
+        <p>Vietnam has pledged net-zero emissions by 2050 and a coal power phase-out by the 2040s. Fixed-schedule buildings fall further out of step with what regulators, tenants, and investors expect.</p>
+      </div>
+      <div class="pressure">
+        <p class="pressure__num">15 to 25%</p>
+        <h4>A proven model, not yet local</h4>
+        <p>BrainBox AI has shown the overlay approach works elsewhere, cutting costs by 15 to 25% and carbon by 20 to 40%, but it structurally can’t serve buildings without existing electronic actuators, which is most of Hanoi’s market. That gap is the opportunity.</p>
+      </div>
+    </div>
+  </div>
+
+  <figure class="statement">
+    <img src="img/towers.jpg" alt="" width="1600" height="1067" loading="lazy">
+    <blockquote class="wrap">
+      <p>AirAI is the only model in this space designed to serve buildings without a write-capable BMS already in place, the segment competitors are structurally excluded from.</p>
+    </blockquote>
+  </figure>
+</section>
+
+<!-- Roadmap -->
+<section class="band band--air" id="roadmap" aria-labelledby="roadmap-title">
+  <div class="wrap">
+    <header class="head">
+      <h2 id="roadmap-title">Three phases, each gated before the next round of investment.</h2>
+    </header>
+
+    <div class="timeline" aria-hidden="true">
+      <div class="timeline__bar">
+        <span class="timeline__seg timeline__seg--1" style="--from:0;--to:6"></span>
+        <span class="timeline__seg timeline__seg--2" style="--from:6;--to:18"></span>
+        <span class="timeline__seg timeline__seg--3" style="--from:18;--to:48"></span>
+        <span class="timeline__goal" style="--at:35"></span>
+      </div>
+      <div class="timeline__axis">
+        <span style="--at:0">Month 0</span><span style="--at:6">6</span><span style="--at:18">18</span><span style="--at:35">35</span><span style="--at:48">48</span>
+      </div>
+    </div>
+
+    <ol class="phases">
+      <li class="phase">
+        <p class="phase__n" aria-hidden="true">1</p>
+        <h3>MVP development</h3>
+        <p class="phase__when">Month 0 to 6</p>
+        <p>Build and shadow-test the AI core against a real Vietnamese building’s operating data.</p>
+        <p class="phase__gate"><strong>Moves on when</strong> predictions reach acceptable accuracy and at least one building commits to a pilot.</p>
+      </li>
+      <li class="phase">
+        <p class="phase__n" aria-hidden="true">2</p>
+        <h3>Commercial pilot</h3>
+        <p class="phase__when">Month 6 to 18</p>
+        <p>Deploy AirAI Lite across 2 to 3 buildings, verify savings through an independent IPMVP audit, and build the first case studies.</p>
+        <p class="phase__gate"><strong>Moves on when</strong> measured savings reach at least 15% of HVAC consumption, with at least one customer renewing.</p>
+      </li>
+      <li class="phase">
+        <p class="phase__n" aria-hidden="true">3</p>
+        <h3>Scaling</h3>
+        <p class="phase__when">Month 18 to 48</p>
+        <p>Expand the portfolio and roll out AirAI Full alongside Lite.</p>
+        <p class="phase__gate"><strong>Target</strong> operating breakeven by Month 35, at 11 Lite sites plus 5 Full sites.</p>
+      </li>
+    </ol>
+
+    <div class="milestones">
+      <h3>Milestones</h3>
+      <dl>
+        <div><dt>Month 0</dt><dd>Pre-seed of 4.2B VND closed, funding Phases 1 and 2</dd></div>
+        <div><dt>Month 6</dt><dd>MVP and shadow mode complete</dd></div>
+        <div><dt>Month 8</dt><dd>First commercial AirAI Lite contract</dd></div>
+        <div><dt>Month 14</dt><dd>First independent IPMVP report</dd></div>
+        <div><dt>Month 18</dt><dd>Seed round of 6.0B VND closed on pilot case studies</dd></div>
+        <div><dt>Month 20 to 24</dt><dd>First AirAI Full deployment</dd></div>
+        <div><dt>Month 35</dt><dd>Operating breakeven, 11 Lite plus 5 Full sites</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- Ask 2 -->
+<section class="closing" aria-labelledby="ask2-title">
+  <img class="closing__bg" src="img/sky.jpg" alt="" width="2000" height="1333" loading="lazy">
+  <div class="wrap closing__inner">
+    <h2 id="ask2-title">The era of inefficient energy management has passed.</h2>
+    <p class="lede">We’re inviting forward-thinking building owners, investors, and civic leaders to help build a greener Hanoi, one commercial property at a time.</p>
+    <div class="audiences audiences--dark">
+      <div class="audience">
+        <h3>Building owners and managers</h3>
+        <p>Adopt intelligent automation. Partner with AirAI for a pilot to cut HVAC costs, reduce emissions, and advance your ESG targets using the infrastructure you already own.</p>
+        <a class="textlink" href="#contact" data-contact>Discuss a pilot</a>
+      </div>
+      <div class="audience">
+        <h3>Investors and BMS integrators</h3>
+        <p>Deploy capital and expertise where it yields immediate, measurable value. Join our upcoming Seed round to capture a profitable, untapped market while driving systemic emission reductions.</p>
+        <a class="textlink" href="#contact" data-contact>Talk to the team</a>
+      </div>
+      <div class="audience">
+        <h3>The city and PropTech community</h3>
+        <p>Partner with us to scale this intelligent overlay across commercial real estate, and help establish Hanoi as a model of sustainable, AI-driven urban infrastructure.</p>
+        <a class="textlink" href="#contact" data-contact>Partner with us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About us -->
+<section class="about" id="about" aria-labelledby="about-title">
+  <div class="wrap about__grid">
+    <figure class="about__photo">
+      <img src="img/team.jpg" alt="The six AirAI team members on stage receiving First Prize at the FTU-UQ Hackathon, with two event representatives" width="1600" height="1067" loading="lazy">
+    </figure>
+    <div class="about__text">
+      <h2 id="about-title">About us</h2>
+      <p>We’re six students in Hanoi who came up with AirAI, a proposal for an AI layer that would stop office buildings wasting energy on empty floors by making existing HVAC systems respond to real conditions instead of a fixed schedule.</p>
+      <p class="about__prize">The idea took First Prize at the FTU-UQ Hackathon.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div class="footer__about">
+      <img class="footer__logo" src="img/airai-logo-light.png" alt="AirAI, intelligent air, better living" width="640" height="286" loading="lazy">
+    </div>
+
+    <nav class="footer__nav" aria-label="Footer">
+      <h2 class="footer__h">Explore</h2>
+      <ul>
+        <li><a href="#problem">Problem</a></li>
+        <li><a href="#solution">Solution</a></li>
+        <li><a href="#product">Product</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#about">About Us</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer__contact" id="contact" tabindex="-1">
+      <h2 class="footer__h">Get in touch</h2>
+      <ul>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:airai.vn@gmail.com">airai.vn@gmail.com</a></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><a href="tel:+84866200807">+84 866 200 807</a></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><span>91 Chua Lang Street, Lang Ward, Hanoi, Vietnam</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer__base">
+    <p class="footer__tagline">Intelligent air. Better living.</p>
+    <p>&copy; 2026 AirAI</p>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
